@@ -1,0 +1,38 @@
+
+exports.seed = function(knex) {
+  return knex('items').insert([
+    { item_name: 'Eggs', category_id: 1 },
+    { item_name: 'Milk', category_id: 1 },
+    { item_name: 'Tilapia', category_id: 1 },
+    { item_name: 'Beef', category_id: 1 },
+    { item_name: 'Black Beans', category_id: 2 },
+    { item_name: 'Kidney Beans', category_id: 2 },
+    { item_name: 'Mixed Beans', category_id: 2 },
+    { item_name: 'Soya Beans', category_id: 2 },
+    { item_name: 'Dry Maize', category_id: 3 },
+    { item_name: 'Maize Flour', category_id: 3 },
+    { item_name: 'Rice', category_id: 4 },
+    { item_name: 'Kilombero Rice', category_id: 4 },
+    { item_name: 'Sorghum', category_id: 5 },
+    { item_name: 'Wheat', category_id: 5 },
+    { item_name: 'Mangos', category_id: 6 },
+    { item_name: 'Oranges', category_id: 6 },
+    { item_name: 'Pawpaw', category_id: 6 },
+    { item_name: 'Pineapples', category_id: 6 },
+    { item_name: 'Sweet Potatoes', category_id: 7 },
+    { item_name: 'Red Irish Potatoes', category_id: 7 },
+    { item_name: 'Cassava Flour', category_id: 7 },
+    { item_name: 'Cassava Fresh', category_id: 7 },
+    { item_name: 'Ground Nuts', category_id: 8 },
+    { item_name: 'Simsim', category_id: 8 },
+    { item_name: 'Sunflower Seed', category_id: 8 },
+    { item_name: 'Cabbages', category_id: 9 },
+    { item_name: 'Cucumber', category_id: 9 },
+    { item_name: 'Ginger', category_id: 9 },
+    { item_name: 'Kale', category_id: 9 },
+    { item_name: 'Coffee (Arabica)', category_id: 10 },
+    { item_name: 'Cotton', category_id: 10 },
+    { item_name: 'Tobacco', category_id: 10 },
+    { item_name: 'Vanilla (Unprocessed)', category_id: 10 }
+  ]);
+};

@@ -114,7 +114,7 @@ GET /api/items/filter/:category_id
 #### Get Active Users user-items
 
 ```
-GET /api/user_items/filtered/:user_id
+GET /api/user_items/filter/:user_id
 ```
 *Returns list of user's items as objects*
 

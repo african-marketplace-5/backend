@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { restricted } = require('../auth/auth-middleware');
+const { restricted } = require('../auth/auth-middleware'); // eslint-disable-line
 const Item = require('./items-model');
 
 const router = express.Router();

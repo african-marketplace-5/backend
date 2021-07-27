@@ -5,7 +5,7 @@ const UserItem = require('./user-items-model');
 
 const router = express.Router();
 
-router.get('/filtered/:user_id', /*restricted,*/ (req, res) => {
+router.get('/filter/:user_id', /*restricted,*/ (req, res) => {
   const { user_id } = req.params;
   UserItem.getByUserId(user_id)
     .then(userItems => {

@@ -14,13 +14,23 @@ const add = async user_item => {
   return newItem;
 }
 
-const update = async user_item => {
-  const updatedItem = await db('user_items').update(user_item);
+const update = async (user_item_id, user_item) => {
+  const updatedItem = await db('user_items')
+    .update(user_item)
+    .where('user_item_id', user_item_id);
   return updatedItem;
+}
+
+const remove = async user_item_id => {
+  const deletedItem = await db('user_items')
+    .where('user_item_id', user_item_id)
+    .del()
+  return deletedItem;
 }
 
 module.exports = {
   getByUserId,
   add,
-  update
+  update,
+  remove
 }

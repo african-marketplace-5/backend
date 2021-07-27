@@ -7,7 +7,13 @@ const insertUser = async user => {
   return newUserObject;
 }
 
+const findByUsername = async username => {
+  const user = await db('users').where('username', username).first();
+  return user
+}
+
 module.exports = {
   getAllUsers,
-  insertUser
+  insertUser,
+  findByUsername
 }

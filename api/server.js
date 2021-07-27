@@ -21,4 +21,8 @@ server.use('/api/locations', LocationsRouter);
 server.use('/api/food_categories', FoodCategoriesRouter);
 server.use('/api/user_items', UserItemsRouter);
 
+server.use('*', (_, res) => {
+  res.send("<h1>Welcome to the African Marketplace API</h1>")
+})
+
 module.exports = server

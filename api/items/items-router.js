@@ -19,7 +19,7 @@ router.post('/', /*restricted,*/ async (req, res) => {
     })
 })
 
-router.get('/:category_id', /*restricted,*/ (req, res) => {
+router.get('filter/:category_id', /*restricted,*/ (req, res) => {
   const { category_id } = req.params;
 
   Item.getByCategoryId(category_id)

@@ -8,6 +8,7 @@
 ```
 POST /api/auth/register
 ```
+*Response includes newly created user object*
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -22,6 +23,7 @@ POST /api/auth/register
 ```
 POST /api/auth/login
 ```
+*Response includes user object. Authorization token in headers object*
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -35,7 +37,9 @@ POST /api/auth/login
 ```
 GET /api/locations/
 ```
-Returns list of all locations. Each object follows the pattern below:
+*Returns list of all locations as objects.*
+
+Each object follows the pattern below:
 ```
 {
   location_id: 1,
@@ -51,184 +55,121 @@ Returns list of all locations. Each object follows the pattern below:
 ```
 GET /api/items/
 ```
+**Authorization Required!**
+*Returns list of all items as objects.*
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `token` | **Required**. Your Authorization |
+Each object follows the pattern below:
+```
+{
+  item_id: 1,
+  item_name: 'Eggs',
+  category: 'Animal Products'
+}
+```
 
 ---------------------------------------------------------
 
-#### Add User to Event
+#### Get All Food Categories
 
-```http
-  POST /api/user/
 ```
+GET /api/food_categories/
+```
+**Authorization Required!**
+*Returns list of all food categories as objects.*
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+Each object follows the pattern below:
+```
+{
+  category_id: 1,
+  category: 'Animal Products'
+}
+```
 
 ---------------------------------------------------------
 
-#### Attendee Confirm Event
+#### Add an Item
 
-```http
-  POST /api/user/:attendees_id
 ```
+POST /api/items/
+```
+**Authorization Required!**
+*Response includes newly added item*
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+| `item_name` | `string` | **Required** |
+| `category_id` | `integer` | **Required** |
+
+---------------------------------------------------------
+
+#### Get Filtered List of Items by category ID
+
+```
+GET /api/items/filter/:category_id
+```
+**Authorization Required!**
 
 ---------------------------------------------------------
   
-#### Get all Events
+#### Get Active Users user-items
 
-```http
-  GET /api/event
 ```
+GET /api/user_items/filtered/:user_id
+```
+*Returns list of user's items as objects*
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+Each object follows the pattern below:
+```
+{
+  user_item_id: 2,
+  item_name: 'Beef',
+  user_item_description: 'God's gift to mankind',
+  user_item_price: 12
+}
+```
+**Authorization Required!**
 
 ---------------------------------------------------------
 
-#### Get event by ID
+#### Add new user-item
 
-```http
-  GET /api/event/:event_id
 ```
+POST /api/user_items/
+```
+**Authorization Required!**
+*Response includes newly added user-item*
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+| `user_item_description` | `string` | Optional |
+| `user_item_price` | `float` | **Required** |
+| `item_id` | `integer` | **Required** |
+| `user_id` | `integer` | **Required** |
 
 ---------------------------------------------------------
 
-#### Delete event by ID
+#### Edit user-item
 
-```http
-  DELETE /api/event/:event_id
 ```
+PUT /api/user_items/:user_item_id
+```
+**Authorization Required!**
+*Response includes edited user-item*
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+| `user_item_description` | `string` | Optional |
+| `user_item_price` | `float` | Optional|
 
 ---------------------------------------------------------
 
-#### Post new Event
+#### Delete user-item
 
-```http
-  POST /api/event/
+```
+DELETE /api/user_items/:user_item_id
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Update Event
-
-```http
-  PUT /api/event/:event_id
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Update Event
-
-```http
-  PUT /api/event/:event_id
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Get all Items
-
-```http
-  GET /api/item
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Get Item by ID
-
-```http
-  GET /api/item/:item_id
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Get All Items
-```http
-  GET /api/item
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Get by Item ID
-```http
-  GET /api/item/:item_id
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Post new Item to Item Table
-```http
-  POST /api/item
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Post item from item table into Event table
-```http
-  POST /api/item/:event_id/:item_id
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
-
----------------------------------------------------------
-
-#### Delete item from Event table
-```http
-  POST /api/item/:event_id/
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `Authorization` | `string` | **Required**. Your Authorization |
+**Authorization Required!**
+*Response includes deleted user-item*
 
 ---------------------------------------------------------

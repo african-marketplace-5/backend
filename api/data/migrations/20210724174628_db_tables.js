@@ -36,12 +36,6 @@ exports.up = function(knex) {
         .references('item_id')
         .inTable('items')
         .onDelete('RESTRICT')
-      tbl.integer('location_id')
-        .unsigned()
-        .notNullable()
-        .references('location_id')
-        .inTable('locations')
-        .onDelete('RESTRICT')
     })
 };
 

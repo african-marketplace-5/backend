@@ -9,8 +9,4 @@ router.get('/', restricted, async (req, res) => {
   res.json(await User.getAllUsers())
 })
 
-// router.post('/', async (req, res) => {
-//   res.status(201).json(await insertUser(req.body))
-// })
-
 module.exports = router;

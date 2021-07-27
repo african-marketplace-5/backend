@@ -7,7 +7,13 @@ const add = async item => {
   return newItem
 }
 
+const getByCategoryId = async category_id => {
+  const items = await db('items').where('category_id', category_id);
+  return items;
+}
+
 module.exports = {
   getAllItems,
-  add
+  add,
+  getByCategoryId
 }

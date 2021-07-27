@@ -1,7 +1,7 @@
 
 ## African Marketplace API Reference
 
-### API URL `https://african-marketplace-5.herokuapp.com/`
+### API URL `https://african-marketplace-5.herokuapp.com`
 
 #### Create New User
 

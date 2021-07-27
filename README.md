@@ -50,12 +50,12 @@ Each object follows the pattern below:
 
 ---------------------------------------------------------
 
-#### Get All Items
+#### Get All Items (**Authorization Required!**)
 
 ```
 GET /api/items/
 ```
-**Authorization Required!**
+
 *Returns list of all items as objects.*
 
 Each object follows the pattern below:
@@ -69,12 +69,12 @@ Each object follows the pattern below:
 
 ---------------------------------------------------------
 
-#### Get All Food Categories
+#### Get All Food Categories (**Authorization Required!**)
 
 ```
 GET /api/food_categories/
 ```
-**Authorization Required!**
+
 *Returns list of all food categories as objects.*
 
 Each object follows the pattern below:
@@ -87,12 +87,12 @@ Each object follows the pattern below:
 
 ---------------------------------------------------------
 
-#### Add an Item
+#### Add an Item (**Authorization Required!**)
 
 ```
 POST /api/items/
 ```
-**Authorization Required!**
+
 *Response includes newly added item*
 
 | Parameter | Type     | Description                |
@@ -102,16 +102,15 @@ POST /api/items/
 
 ---------------------------------------------------------
 
-#### Get Filtered List of Items by category ID
+#### Get Filtered List of Items by category ID (**Authorization Required!**)
 
 ```
 GET /api/items/filter/:category_id
 ```
-**Authorization Required!**
 
 ---------------------------------------------------------
   
-#### Get Active Users user-items
+#### Get current user's user-items (**Authorization Required!**)
 
 ```
 GET /api/user_items/filter/:user_id
@@ -127,16 +126,15 @@ Each object follows the pattern below:
   user_item_price: 12
 }
 ```
-**Authorization Required!**
 
 ---------------------------------------------------------
 
-#### Add new user-item
+#### Add new user-item (**Authorization Required!**)
 
 ```
 POST /api/user_items/
 ```
-**Authorization Required!**
+
 *Response includes newly added user-item*
 
 | Parameter | Type     | Description                |
@@ -148,12 +146,12 @@ POST /api/user_items/
 
 ---------------------------------------------------------
 
-#### Edit user-item
+#### Edit user-item (**Authorization Required!**)
 
 ```
 PUT /api/user_items/:user_item_id
 ```
-**Authorization Required!**
+
 *Response includes edited user-item*
 
 | Parameter | Type     | Description                |
@@ -163,13 +161,13 @@ PUT /api/user_items/:user_item_id
 
 ---------------------------------------------------------
 
-#### Delete user-item
+#### Delete user-item (**Authorization Required!**)
 
 ```
 DELETE /api/user_items/:user_item_id
 ```
 
-**Authorization Required!**
+
 *Response includes deleted user-item*
 
 ---------------------------------------------------------

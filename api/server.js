@@ -18,7 +18,7 @@ server.use('/api/auth', AuthRouter);
 server.use('/api/users', UsersRouter);
 server.use('/api/items', ItemsRouter);
 server.use('/api/locations', LocationsRouter);
-server.use('/api/food-categories', FoodCategoriesRouter);
-server.use('/api/user-items', UserItemsRouter);
+server.use('/api/food_categories', FoodCategoriesRouter);
+server.use('/api/user_items', UserItemsRouter);
 
 module.exports = server

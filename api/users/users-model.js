@@ -3,7 +3,7 @@ const db = require('../data/db-config');
 const getAllUsers = () => { return db('users') };
 
 const insertUser = async user => {
-  const [newUserObject] = await db('users').insert(user, ['user_id', 'username']);
+  const [newUserObject] = await db('users').insert(user, ['user_id', 'username', 'password', 'location_id']);
   return newUserObject;
 }
 

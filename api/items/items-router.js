@@ -11,8 +11,8 @@ router.get('/', /*restricted,*/ async (req, res) => {
 
 router.post('/', /*restricted,*/ async (req, res) => {
   Item.add(req.body)
-    .then(newUser => {
-      res.status(201).json(newUser);
+    .then(newItem => {
+      res.status(201).json(newItem);
     })
     .catch(err => {
       res.status(500).json({ message: err.message });

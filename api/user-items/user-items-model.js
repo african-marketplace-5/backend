@@ -1,5 +1,9 @@
 const db = require('../data/db-config');
 
+const getAll = async () => {
+  return await db('user_items');
+}
+
 const getUserItemById = async id => {
   const userItem = db('user_items').where('user_item_id', id).first();
   return userItem;
@@ -36,6 +40,7 @@ const remove = async user_item_id => {
 }
 
 module.exports = {
+  getAll,
   getByUserId,
   add,
   update,

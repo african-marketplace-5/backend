@@ -62,8 +62,15 @@ Each object follows the pattern below:
 ```
 {
   item_id: 1,
-  item_name: 'Eggs',
-  category: 'Animal Products'
+  item_name: "Eggs",
+  category: "Animal Products",
+  prices: [
+      4,
+      3.5,
+      4,
+      3.75
+  ],
+  sellers: 4
 }
 ```
 
